@@ -75,7 +75,6 @@ export default class App extends Component {
       default:
         console.log("uncaught switch");
         break;
-
     }
 
     /* Cases
@@ -91,9 +90,9 @@ export default class App extends Component {
 
   render() {
     return (
-    	<div className="root">
+      <div className="root">
           <div className="container">
-      		<QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
+          <QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
           <PendingPizza pizza={this.state.pendingPizza} />
           <Order location={this.state.location} pizzas={this.state.pizzas} />
           </div>
