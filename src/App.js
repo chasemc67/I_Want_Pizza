@@ -36,16 +36,27 @@ export default class App extends Component {
           case "pepperoni":
             this.setState({pendingPizza: {toppings: ["pepperoni"]}});
             break;
+          case "cheese":
+            this.setState({pendingPizza: {toppings: ["cheese"]}});
+            break;
           default:
             console.log("uncaught switch");
             break;
         }
 
       case "addTopping":
-        
+        let ourPendingPizza = this.state.pendingPizza;
+        ourPendingPizza.toppings.push(response.parameters.topping);
+        this.setState({pendingPizza: ourPendingPizza});
         break;
 
       case "removeTopping":
+        let pendingPizza = this.state.pendingPizza;
+        let indexOfTopping = pendingPizza.toppings.indexof(response.paramters.topping);
+        if (indexOfTopping >= 0){
+          pendingPizza.toppings.splice(indexOfTopping, 1);
+          this.setState({pendingPizza: pendingPizza});
+        }
         break;
 
       case "finishAddingToppings":
