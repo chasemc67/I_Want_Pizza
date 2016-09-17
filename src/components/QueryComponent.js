@@ -63,6 +63,7 @@ export default class QueryComponent extends Component {
     }
 
     handleStartListening(e) {
+        console.log("Start listening");
         var agentConfig = {
             server: 'wss://api.api.ai:4435/api/ws/query',
             token: config.apiTokenVal, // Use Client access token there (see agent keys).
@@ -78,11 +79,13 @@ export default class QueryComponent extends Component {
 
         apiAi.onOpen = function () {
             apiAi.startListening();
+            console.log("api open Start listening");
         };
 
         apiAi.onResults = function (data) {
 
             var processResult = function (data) {
+                console.log("Processing result");
                 this.handleAgentResponse(data);
                 //console.log(data);
                 //this.setState({queryString: data.resolvedQuery});
@@ -100,6 +103,7 @@ export default class QueryComponent extends Component {
     }
 
     handleStopListening() {
+        console.log("Stop listening");
         apiAi.stopListening();
     }
 
