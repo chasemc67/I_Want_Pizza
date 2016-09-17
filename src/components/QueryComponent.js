@@ -40,9 +40,7 @@ export default class QueryComponent extends Component {
             this.handleQueryAgent(e)
             e.target.value = "";
         }
-        else {
-            this.setState({queryString: e.target.value.toString()});
-        }
+        else { this.setState({queryString: e.target.value.toString()}); }
     }
 
     handleQueryAgent(e) {
@@ -141,7 +139,7 @@ export default class QueryComponent extends Component {
         return (
             <div className="QueryComponent">
                 <h1>What kind of pizza would you like to order?</h1>
-                <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Pepperioni, Cheese, Vegi ..." onSubmit={this.handleQueryAgent}>Query Agent</textarea>
+                <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Pepperoni, Cheese, Veggie ..." onSubmit={this.handleQueryAgent}>Query Agent</textarea>
 
                 <button type="button" className="startListeningButton" onClick={this.handleStartListening}>Start Listening</button>
                 <button type="button" className="stopListeningButton" onClick={this.handleStopListening}>Stop Listening</button>
