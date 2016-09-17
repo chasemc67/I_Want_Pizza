@@ -8,7 +8,7 @@ export default class Order extends Component {
 
   render() {
       return(
-        <div class="PizzaOrderDiv">
+        <div className="PizzaOrderDiv">
             Location: {this.props.location}
             {this.props.pizzas.map(function (pizza) {
               return (<Pizza toppings={pizza.toppings} />);
