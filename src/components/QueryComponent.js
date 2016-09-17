@@ -63,6 +63,7 @@ export default class QueryComponent extends Component {
     }
 
     handleStartListening(e) {
+        console.log("Start listening");
         var agentConfig = {
             server: 'wss://api.api.ai:4435/api/ws/query',
             token: config.apiTokenVal, // Use Client access token there (see agent keys).
@@ -78,15 +79,14 @@ export default class QueryComponent extends Component {
 
         apiAi.onOpen = function () {
             apiAi.startListening();
+            console.log("api open Start listening");
         };
 
         apiAi.onResults = function (data) {
 
             var processResult = function (data) {
+                console.log("Processing result");
                 this.handleAgentResponse(data);
-                //console.log(data);
-                //this.setState({queryString: data.resolvedQuery});
-                // this.handleQueryAgent();
             }.bind(this);
 
             var status = data.status;
@@ -100,6 +100,7 @@ export default class QueryComponent extends Component {
     }
 
     handleStopListening() {
+        console.log("Stop listening");
         apiAi.stopListening();
     }
 
@@ -133,8 +134,9 @@ export default class QueryComponent extends Component {
     render() {
         return (
             <div className="QueryComponent">
-                <h1>What kind of pizza would you like to order</h1>
-                <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Say something to QB" />
+                <h1>What kind of pizza would you like to order?</h1>
+                    <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Pepperioni, Cheese, Vegi ..." />
+
                 <button type="button" className="queryAgentButton" onClick={this.handleQueryAgent}>Query Agent</button>
                 <button type="button" className="startListeningButton" onClick={this.handleStartListening}>Start Listening</button>
                 <button type="button" className="stopListeningButton" onClick={this.handleStopListening}>Stop Listening</button>
