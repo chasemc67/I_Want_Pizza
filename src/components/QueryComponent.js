@@ -87,9 +87,6 @@ export default class QueryComponent extends Component {
             var processResult = function (data) {
                 console.log("Processing result");
                 this.handleAgentResponse(data);
-                //console.log(data);
-                //this.setState({queryString: data.resolvedQuery});
-                // this.handleQueryAgent();
             }.bind(this);
 
             var status = data.status;

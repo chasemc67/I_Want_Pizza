@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import QueryComponent from "./components/QueryComponent";
 import Agent from "./Agent";
 
+import Order from "./orderVisualizerComponents/Order";
+
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +21,8 @@ export default class App extends Component {
     return (
     	<div className="root">
       		<QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
-      	</div>
+          <Order location={"Engineering 5, Waterloo"} pizzas={[{toppings: ["pepperoni", "mushrooms"]}]} />
+      </div>
     );
   }
 }
