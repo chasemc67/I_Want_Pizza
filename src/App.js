@@ -26,7 +26,7 @@ export default class App extends Component {
     console.log("Agent response was: ");
     console.log(response);
 
-    let currentState, pendingPizza;
+    let currentState, pendingPizza, indexOfTopping;
 
     this.setState({context: response.metadata.contexts})
 
@@ -59,7 +59,7 @@ export default class App extends Component {
 
       case "removeTopping":
         pendingPizza = this.state.pendingPizza;
-        let indexOfTopping = pendingPizza.toppings.indexof(response.parameters.topping);
+        indexOfTopping = pendingPizza.toppings.indexOf(response.parameters.topping);
         if (indexOfTopping >= 0){
           pendingPizza.toppings.splice(indexOfTopping, 1);
           this.setState({pendingPizza: pendingPizza});
@@ -103,6 +103,7 @@ export default class App extends Component {
             <h1>Do You Want Pizza in {this.state.location}? </h1>
             <QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
             <PendingPizza pizza={this.state.pendingPizza} />
+            <Order location={this.state.location} pizzas={this.state.pizzas} />
             <img className="pizzaIMG center-block" src="pizza.svg"></img>
           </div>
       </div>

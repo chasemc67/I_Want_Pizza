@@ -9,9 +9,18 @@ export default class Order extends Component {
   render() {
       return(
         <div className="PizzaOrderDiv">
+            Your order: <br/>
             Location: {this.props.location}
             {this.props.pizzas.map(function (pizza) {
-              return (<Pizza toppings={pizza.toppings} />);
+              return (
+                <div className="PizzaInOrder">
+                  <br />
+                  Pizza:
+                  <Pizza toppings={pizza.toppings} />
+
+                </div>
+              );
+
             })}
         </div>
       );

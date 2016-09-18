@@ -13,7 +13,7 @@ export default class PendingPizza extends Component {
     }
     return (
       <div className="PendingPizza">
-        Pending Pizza:
+        Adding Pizza:
         <Pizza toppings={this.props.pizza.toppings} />
         <br/>
         <br/>
