@@ -25,22 +25,17 @@ export default class Prompt extends Component {
                 "sausages",
                 "ham",
                 "chicken",
-                "brooklyn pepperoni",
                 "beef",
                 "bacon",
-                "philly steak",
                 "cheddar",
-                "provalone",
                 "black olives",
                 "green peppers",
                 "pineapple",
                 "tomatoes",
-                "feta",
                 "hot banana peppers",
                 "green olives",
                 "mushrooms",
-                "onions",
-                "jalapeno peppers"
+                "onions"
             ];
         } else {
             thingsToSay = [

@@ -11,7 +11,8 @@ export default class App extends Component {
     super(props);
 
     this.state = {
-      location: "Engineering 5, Waterloo",
+      postalCode: "2NL 3G1",
+      location: "University of Waterloo, 2NL 3G1",
       pizzas: [],
       pendingPizza: { toppings:[]},
       context: []
