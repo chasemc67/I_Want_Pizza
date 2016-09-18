@@ -26,6 +26,8 @@ export default class App extends Component {
     console.log("Agent response was: ");
     console.log(response);
 
+    let currentState, pendingPizza;
+
     this.setState({context: response.metadata.contexts})
 
     switch(response.action) {
@@ -56,8 +58,8 @@ export default class App extends Component {
         break;
 
       case "removeTopping":
-        let pendingPizza = this.state.pendingPizza;
-        let indexOfTopping = pendingPizza.toppings.indexof(response.paramters.topping);
+        pendingPizza = this.state.pendingPizza;
+        let indexOfTopping = pendingPizza.toppings.indexof(response.parameters.topping);
         if (indexOfTopping >= 0){
           pendingPizza.toppings.splice(indexOfTopping, 1);
           this.setState({pendingPizza: pendingPizza});
@@ -66,9 +68,16 @@ export default class App extends Component {
 
       case "finishAddingToppings":
         let newPizza = this.state.pendingPizza;
-        let currentState = this.state;
+        currentState = this.state;
         currentState.pizzas.push(newPizza);
         currentState.pendingPizza = {};
+        this.Agent.deleteContext();
+        this.setState(currentState);
+        break;
+
+      case "finishAddingPizza":
+        currentState = this.state;
+        currentState.pizzas = [];
         this.setState(currentState);
         break;
 

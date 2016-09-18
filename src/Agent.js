@@ -89,36 +89,6 @@ export default class Agent {
         });
     }
 
-    /* Get the speech file generated from api.ai
-    getTTSFile(url) {
-        window.AudioContext = window.AudioContext || window.webkitAudioContext;
-        var context = new AudioContext();
-        var audioBuffer = null;
-
-        return new Promise((resolve, reject) => {
-            const xhr = new XMLHttpRequest();
-            xhr.open("GET", url, true);
-            xhr.setRequestHeader("Authorization", config.apiToken);
-            xhr.setRequestHeader("Accept-Language", "en-US");
-            xhr.responseType = 'arraybuffer';
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    context.decodeAudioData(xhr.response, function(buffer) {
-                        audioBuffer = buffer;
-                    }, onError);
-                } else if (xhr.status === 400) {
-                    reject(xhr.response.message);
-                } else {
-                    reject(`Get request failed with status = ${xhr.status} - ${xhr.statusText}`);
-                }
-            };
-            xhr.onerror = function() {
-                reject(`Get request failed with status = ${xhr.status} - ${xhr.statusText}`);
-            };
-            xhr.send();
-        });
-    } */
-
     deleteJSON() {
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
