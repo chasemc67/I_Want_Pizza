@@ -54,6 +54,7 @@ export default class QueryComponent extends Component {
         };
 
         this.props.Agent.queryAgent(query).then((response) => {
+            e.target.value = response.result.speech;
             this.handleAgentResponse(response.result);
         });
     }
@@ -110,7 +111,7 @@ export default class QueryComponent extends Component {
 
     getCurrentContext() {
         this.props.Agent.getContext().then((response) => {
-            console.log("Conext is: ");
+            console.log("Context is: ");
             console.log(response);
         });
     }
@@ -138,9 +139,11 @@ export default class QueryComponent extends Component {
     render() {
         return (
             <div className="QueryComponent">
-                <h1>What kind of pizza would you like to order?</h1>
-                <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Pepperoni, Cheese, Veggie ..." onSubmit={this.handleQueryAgent}>Query Agent</textarea>
+                <div className="agentQueryBox">
+                <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Ask it. You know you want to!" onSubmit={this.handleQueryAgent}></textarea>
+                </div>
 
+<<<<<<< Updated upstream
 
                 <div className="btn-group mic-buttons" role="group" aria-label="...">
                     <button type="button" className="startListeningButton btn btn-default" onClick={this.handleStartListening}>
@@ -159,11 +162,17 @@ export default class QueryComponent extends Component {
                 <div className="qbResponse">
                     <h2>Info: {this.state.agentResponse} </h2>
                 </div>
+=======
+                <button type="button" className="startListeningButton" onClick={this.handleStartListening}>Start Listening</button>
+                <button type="button" className="stopListeningButton" onClick={this.handleStopListening}>Stop Listening</button>
+                <div className="qbResponse"> <h2>Agent Output: {this.state.agentResponse} </h2> </div>
+>>>>>>> Stashed changes
             </div>
         );
     }
 }
 
+<<<<<<< Updated upstream
 //<button type="button" className="queryAgentButton" onClick ={this.handleQueryAgent}>Query Agent</button>
 /*                
 <div className="btn-group" role="group" aria-label="...">
@@ -171,3 +180,10 @@ export default class QueryComponent extends Component {
 <button type="button" className="deleteContextButton btn btn-default" onClick={this.deleteCurrentContext}>Delete Context</button>
 </div>
 */
+=======
+//<h1>What kind of pizza would you like to order?</h1>
+//<button type="button" className="queryAgentButton" onClick ={this.handleQueryAgent}>Query Agent</button>
+
+// <button type="button" className="getContextButton" onClick={this.getCurrentContext}>Get Context</button>
+// <button type="button" className="deleteContextButton" onClick={this.deleteCurrentContext}>Delete Context</button>
+>>>>>>> Stashed changes
