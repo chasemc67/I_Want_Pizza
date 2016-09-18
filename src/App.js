@@ -3,7 +3,8 @@ import QueryComponent from "./components/QueryComponent";
 import Agent from "./Agent";
 
 import Order from "./orderVisualizerComponents/Order";
-import PendingPizza from "./orderVisualizerComponents/PendingPizza"
+import PendingPizza from "./orderVisualizerComponents/PendingPizza";
+import Prompt from "./orderVisualizerComponents/Prompt";
 
 export default class App extends Component {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class App extends Component {
     this.state = {
       location: "Engineering 5, Waterloo",
       pizzas: [],
-      pendingPizza: { toppings:[]}
+      pendingPizza: { toppings:[]},
+      context: []
     };
 
     this.parseAgentResponse = this.parseAgentResponse.bind(this);
@@ -22,6 +24,8 @@ export default class App extends Component {
   parseAgentResponse(response) {
     console.log("Agent response was: ");
     console.log(response);
+
+    this.setState({context: response.metadata.contexts})
 
     switch(response.action) {
       case "orderDefaultPizza":
@@ -90,6 +94,7 @@ export default class App extends Component {
       		<QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
           <PendingPizza pizza={this.state.pendingPizza} />
           <Order location={this.state.location} pizzas={this.state.pizzas} />
+          <Prompt context={this.state.context}/>
       </div>
     );
   }
