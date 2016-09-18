@@ -90,10 +90,11 @@ export default class App extends Component {
   render() {
     return (
       <div className="root">
-          <h1>Do You Want Pizza in {this.state.location}? </h1>
           <div className="container">
+            <h1>Do You Want Pizza in {this.state.location}? </h1>
             <QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
             <PendingPizza pizza={this.state.pendingPizza} />
+            <img className="pizzaIMG center-block" src="pizza.svg"></img>
           </div>
       </div>
     );
