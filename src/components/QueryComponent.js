@@ -134,8 +134,9 @@ export default class QueryComponent extends Component {
     render() {
         return (
             <div className="QueryComponent">
-                <h1>What kind of pizza would you like to order</h1>
-                <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Say something to QB" />
+                <h1>What kind of pizza would you like to order?</h1>
+                    <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Pepperioni, Cheese, Vegi ..." />
+
                 <button type="button" className="queryAgentButton" onClick={this.handleQueryAgent}>Query Agent</button>
                 <button type="button" className="startListeningButton" onClick={this.handleStartListening}>Start Listening</button>
                 <button type="button" className="stopListeningButton" onClick={this.handleStopListening}>Stop Listening</button>
