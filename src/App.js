@@ -96,7 +96,6 @@ export default class App extends Component {
             <PendingPizza pizza={this.state.pendingPizza} />
             <Order location={this.state.location} pizzas={this.state.pizzas} />
           </div>
-          <Prompt context={this.state.context}/>
       </div>
     );
   }

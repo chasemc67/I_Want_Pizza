@@ -140,7 +140,7 @@ export default class QueryComponent extends Component {
             <div className="QueryComponent">
                 <div className="agentQueryBox">
                     <textarea className="queryAgent" rows={1} onInput={this.onQueryAgentString} placeholder="Ask for pizza..." onSubmit={this.handleQueryAgent}></textarea>
-                    <div className="responseAgent" rows={1}>{this.state.agentResponse}</div>
+                    <div className="responseAgent">{this.state.agentResponse}</div>
                 </div>
 
                 <div className="btn-group mic-buttons" role="group" aria-label="...">
