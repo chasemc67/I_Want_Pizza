@@ -7,6 +7,16 @@
     resize: none;
 }
 
+.responseAgent {
+	text-align: right;
+	border: 3px solid #cccccc;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	color: #00BFFF;
+	height: 25px;
+	margin-left: 200px;
+}
+
 h1 {
 	text-align: center;
 }
@@ -15,6 +25,8 @@ textarea {
 	border: 3px solid #cccccc;
 	border-radius: 10px;
 	width: 100%;
+	color: #DF3232;
+	margin-right:200px;
 }
 
 .mic-buttons {
