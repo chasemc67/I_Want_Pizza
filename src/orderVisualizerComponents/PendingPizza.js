@@ -15,7 +15,9 @@ export default class PendingPizza extends Component {
       <div className="PendingPizza">
         Pending Pizza:
         <Pizza toppings={this.props.pizza.toppings} />
-        ====================================
+        <br/>
+        <br/>
+        <br/>
       </div>
     );
   }

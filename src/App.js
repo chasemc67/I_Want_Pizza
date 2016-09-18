@@ -92,12 +92,12 @@ export default class App extends Component {
       <div className="root">
           <h1>Do You Want Pizza?</h1>
           <div className="container">
-            <QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
-            <PendingPizza pizza={this.state.pendingPizza} />
-            <Order location={this.state.location} pizzas={this.state.pizzas} />
+      		<QueryComponent Agent={this.Agent} onRecieveResponse={this.parseAgentResponse} />
+          <PendingPizza pizza={this.state.pendingPizza} />
+          <Order location={this.state.location} pizzas={this.state.pizzas} />
           </div>
-          <Prompt context={this.state.context}/>
       </div>
     );
   }
 }
+//<Prompt context={this.state.context}/> 

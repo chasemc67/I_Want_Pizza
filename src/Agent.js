@@ -65,7 +65,7 @@ export default class Agent {
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
-            xhr.open("GET", "http://localhost:8081/audio", true);
+            xhr.open("GET", "http://45.79.137.130:8081/audio", true);
             xhr.setRequestHeader("text", text);
             xhr.responseType = 'arraybuffer';
             xhr.onload = function() {
